@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行動學習沙龍｜帶著一個真問題來，讓問題開始往前走</title>
+<meta name="description" content="9/12 台北．行動學習沙龍體驗會。帶著一個你真正卡住的問題來，體驗一場只問問題、不給建議的集體對話。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0b10;
+    --bg-soft: #101018;
+    --card: rgba(255,255,255,.035);
+    --card-border: rgba(245,197,24,.25);
+    --line: rgba(255,255,255,.08);
+    --text: #dfe2ea;
+    --text-soft: #c9ccd4;
+    --muted: #8a8f9e;
+    --gold: #f5c518;
+    --gold-deep: #b78a00;
+    --gold-soft: #e8d89a;
+    --gold-bright: #f7e099;
+    --serif: 'Noto Serif TC', serif;
+    --sans: 'Noto Sans TC', sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 88px 0; }
+
+  h1, h2, h3 { font-family: var(--serif); line-height: 1.4; }
+  h2 { font-size: 1.9rem; font-weight: 900; margin-bottom: 8px; color: #fff; }
+  .gold-grad {
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold), var(--gold-bright));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .kicker {
+    font-family: var(--sans); font-size: .82rem; font-weight: 700;
+    letter-spacing: .35em; color: var(--gold); text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .lead { color: var(--text-soft); margin-bottom: 32px; }
+  p + p { margin-top: 1.1em; }
+  p { color: var(--text-soft); }
+  strong { color: #fff; }
+
+  /* ===== Nav ===== */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(11,11,16,.85); backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(245,197,24,.12);
+  }
+  .nav-inner {
+    max-width: 960px; margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand { font-family: var(--serif); font-weight: 700; font-size: 1.02rem; letter-spacing: .08em; color: var(--gold-soft); }
+  .nav-cta {
+    font-size: .9rem; font-weight: 700; color: #0b0b10; background: var(--gold);
+    padding: 8px 20px; border-radius: 999px; text-decoration: none;
+    transition: all .2s; box-shadow: 0 0 18px rgba(245,197,24,.3);
+  }
+  .nav-cta:hover { background: var(--gold-bright); box-shadow: 0 0 26px rgba(245,197,24,.5); }
+
+  /* ===== Hero ===== */
+  .hero {
+    padding: 120px 0 100px;
+    background:
+      radial-gradient(ellipse 75% 55% at 50% -10%, rgba(245,197,24,.12), transparent),
+      radial-gradient(ellipse 50% 40% at 90% 100%, rgba(245,197,24,.05), transparent),
+      var(--bg);
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-date {
+    display: inline-block; font-size: .85rem; font-weight: 700; letter-spacing: .25em;
+    color: var(--gold); border: 1px solid rgba(245,197,24,.45); border-radius: 999px;
+    padding: 6px 22px; margin-bottom: 34px; background: rgba(245,197,24,.06);
+  }
+  .hero h1 {
+    font-size: clamp(2.1rem, 5.4vw, 3.3rem); font-weight: 900; letter-spacing: .04em;
+    margin-bottom: 22px; color: #fff;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold), var(--gold-bright));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-sub {
+    font-family: var(--serif); font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+    color: var(--text-soft); max-width: 560px; margin: 0 auto 44px;
+  }
+  .btn {
+    display: inline-block; font-size: 1.05rem; font-weight: 700; color: #0b0b10;
+    background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+    padding: 16px 52px; border-radius: 999px;
+    text-decoration: none; letter-spacing: .12em;
+    box-shadow: 0 0 30px rgba(245,197,24,.35);
+    transition: transform .15s, box-shadow .2s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 0 44px rgba(245,197,24,.55); }
+  .btn-note { display: block; margin-top: 14px; font-size: .82rem; color: var(--muted); letter-spacing: .1em; }
+
+  /* ===== Hook ===== */
+  .hook {
+    background:
+      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(245,197,24,.05), transparent),
+      var(--bg-soft);
+    border-bottom: 1px solid var(--line);
+  }
+  .hook .wrap { max-width: 680px; text-align: center; }
+  .hook p {
+    font-family: var(--serif); font-size: clamp(1.15rem, 2.6vw, 1.45rem); line-height: 2.1;
+    color: var(--text);
+  }
+  .hook .dim { color: var(--muted); font-size: .92em; }
+  .hook .punch {
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hook-divider { width: 36px; height: 2px; background: var(--gold-deep); margin: 30px auto; opacity: .8; }
+
+  /* ===== 通用卡片 ===== */
+  .cards { display: grid; gap: 18px; margin-top: 36px; }
+  .card {
+    background: var(--card); border: 1px solid var(--card-border); border-radius: 14px;
+    padding: 28px 30px;
+  }
+  .card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
+  .card h3 .no {
+    font-family: var(--serif); color: var(--gold); font-size: .9rem;
+    letter-spacing: .15em; display: block; margin-bottom: 6px;
+  }
+  .card p { font-size: .98rem; color: var(--text-soft); }
+
+  /* ===== 沙龍歷史 ===== */
+  .salon-quote {
+    border-left: 3px solid var(--gold); padding: 6px 0 6px 26px;
+    font-family: var(--serif); font-size: 1.08rem; color: var(--gold-soft);
+    margin-top: 28px;
+  }
+
+  /* ===== 公式 ===== */
+  .formula {
+    text-align: center; font-family: var(--serif); font-weight: 900;
+    font-size: clamp(1.6rem, 4.5vw, 2.3rem); letter-spacing: .08em;
+    background: rgba(245,197,24,.06); border: 1px solid rgba(245,197,24,.3);
+    border-radius: 14px; padding: 34px 20px;
+    margin: 36px 0 14px; color: #fff;
+  }
+  .formula span { color: var(--gold); }
+  .formula-note { text-align: center; font-size: .88rem; color: var(--muted); }
+
+  /* ===== 場景列表 ===== */
+  .scenes { list-style: none; margin-top: 30px; }
+  .scenes li {
+    padding: 16px 0 16px 38px; position: relative;
+    border-bottom: 1px dashed var(--line); font-size: 1.02rem; color: var(--text-soft);
+  }
+  .scenes li:last-child { border-bottom: none; }
+  .scenes li::before {
+    content: "？"; position: absolute; left: 0; top: 14px;
+    font-family: var(--serif); font-weight: 900; color: var(--gold);
+  }
+
+  /* ===== 流程 ===== */
+  .agenda { margin-top: 36px; display: grid; gap: 0; }
+  .agenda-item {
+    display: grid; grid-template-columns: 64px 1fr; gap: 22px;
+    padding: 30px 0; border-bottom: 1px solid var(--line);
+  }
+  .agenda-item:last-child { border-bottom: none; }
+  .agenda-no {
+    font-family: var(--serif); font-size: 2rem; font-weight: 900;
+    color: rgba(245,197,24,.35); line-height: 1;
+  }
+  .agenda-item h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; color: #fff; }
+  .agenda-item p { font-size: .97rem; color: var(--text-soft); }
+  .agenda-item .tag {
+    display: inline-block; font-size: .75rem; font-weight: 700; color: var(--gold);
+    background: rgba(245,197,24,.08); border: 1px solid rgba(245,197,24,.3);
+    border-radius: 6px; padding: 2px 10px;
+    margin-bottom: 10px; letter-spacing: .1em;
+  }
+
+  /* ===== 區段底色交錯 ===== */
+  .alt { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  /* ===== 適合對象 ===== */
+  .fit-list { list-style: none; margin-top: 32px; display: grid; gap: 14px; }
+  .fit-list li {
+    background: var(--card); border-radius: 12px; padding: 18px 24px 18px 56px;
+    position: relative; font-size: 1rem; border: 1px solid var(--card-border);
+    color: var(--text-soft);
+  }
+  .fit-list li::before {
+    content: "✓"; position: absolute; left: 22px; top: 17px;
+    color: var(--gold); font-weight: 900; font-size: 1.1rem;
+  }
+
+  /* ===== AI 時代 ===== */
+  .ai-era .big-line {
+    font-family: var(--serif); font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 700;
+    line-height: 2; margin: 28px 0; color: var(--text);
+  }
+  .ai-era .big-line strong {
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold), var(--gold-bright));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  /* ===== 教練 ===== */
+  .coach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 36px; }
+  .coach {
+    background: var(--card); border: 1px solid var(--card-border); border-radius: 14px;
+    padding: 30px 24px; text-align: center;
+  }
+  .coach-avatar {
+    width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 16px;
+    background: rgba(245,197,24,.08); display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 1.6rem; font-weight: 900; color: var(--gold);
+    border: 2px solid rgba(245,197,24,.4);
+  }
+  .coach h3 { font-size: 1.05rem; color: #fff; }
+  .coach p { font-size: .85rem; color: var(--muted); margin-top: 6px; }
+
+  /* ===== 報名資訊 ===== */
+  .info {
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(245,197,24,.1), transparent),
+      var(--bg-soft);
+    text-align: center;
+    border-top: 1px solid rgba(245,197,24,.2);
+    border-bottom: 1px solid var(--line);
+  }
+  .info h2 { color: #fff; }
+  .info-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px; background: rgba(245,197,24,.2); border: 1px solid rgba(245,197,24,.25);
+    border-radius: 14px; overflow: hidden; margin: 40px 0;
+  }
+  .info-cell { background: #14141c; padding: 26px 16px; }
+  .info-cell .label { font-size: .78rem; letter-spacing: .25em; color: var(--muted); margin-bottom: 8px; }
+  .info-cell .value { font-family: var(--serif); font-size: 1.12rem; font-weight: 700; color: var(--gold-soft); }
+  .info-cell .value small { display: block; font-size: .78rem; font-weight: 400; color: var(--muted); margin-top: 4px; }
+
+  /* ===== FAQ ===== */
+  details {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px 26px; margin-top: 14px;
+  }
+  summary {
+    font-weight: 700; cursor: pointer; list-style: none; position: relative; padding-right: 30px;
+    color: var(--text);
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "＋"; position: absolute; right: 0; top: 0; color: var(--gold); font-weight: 400;
+  }
+  details[open] summary::after { content: "－"; }
+  details p { margin-top: 12px; font-size: .95rem; color: var(--text-soft); }
+
+  /* ===== Footer ===== */
+  footer {
+    padding: 48px 0 64px; text-align: center; font-size: .82rem; color: var(--muted);
+    border-top: 1px solid var(--line);
+  }
+  footer .brand { font-family: var(--serif); font-weight: 700; font-size: 1rem; color: var(--gold-soft); margin-bottom: 8px; }
+
+  @media (max-width: 560px) {
+    section { padding: 64px 0; }
+    .agenda-item { grid-template-columns: 44px 1fr; gap: 14px; }
+    .agenda-no { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">行動學習沙龍</div>
+    <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLScklLyNI6wkuiPjBQDgOF2MjF5ezN6taEW6dNuJ8U2pxY4ZrA/viewform" target="_blank" rel="noopener">立即報名</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-date">2026.9.12（六）下午・台北</div>
+    <h1>帶著一個<em>真問題</em>來，<br>讓問題開始往前走</h1>
+    <p class="hero-sub">
+      一場不給答案的沙龍。<br>
+      一群人、九十分鐘、只問問題——<br>
+      然後你會看見，問題原來長另一個樣子。
+    </p>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScklLyNI6wkuiPjBQDgOF2MjF5ezN6taEW6dNuJ8U2pxY4ZrA/viewform" target="_blank" rel="noopener">預留我的位子</a>
+    <span class="btn-note">小組制・名額有限・酌收場地費</span>
+  </div>
+</header>
+
+<!-- ===================== HOOK ===================== -->
+<section class="hook">
+  <div class="wrap">
+    <p>你有沒有被一群人認真地<br>「只問問題、不給建議」過？</p>
+    <div class="hook-divider"></div>
+    <p class="dim">
+      大概沒有。因為這個經驗在日常裡幾乎不存在——<br>
+      朋友給安慰，同事給建議，主管給指令，<br>
+      AI 三秒鐘給你十個框架。
+    </p>
+    <div class="hook-divider"></div>
+    <p>
+      但你卡住三個月的那件事，<br>
+      缺的往往不是答案。<br>
+      <span class="punch">是問題本身，還沒被看清楚。</span>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 什麼是沙龍 ===================== -->
+<section>
+  <div class="wrap">
+    <div class="kicker">The Salon</div>
+    <h2>為什麼叫「沙龍」？</h2>
+    <p class="lead">因為我們要做的，是一件有四百年歷史的事。</p>
+    <p>
+      十六世紀起，沙龍在歐洲興起，成為思想交流的重要場域。到了啟蒙時代，
+      民主、自由、法治、天賦人權——這些塑造今天世界基本運作方式的巨大成就，
+      都與沙龍裡那些自由而深刻的對話密不可分。
+    </p>
+    <p>
+      沙龍的本質從來不是聽講，而是<strong>對話</strong>：
+      一群背景各異的人，圍著一個值得認真對待的題目，把彼此的思考借給對方。
+    </p>
+    <div class="salon-quote">
+      這場沙龍裡，那個值得認真對待的題目——就是你帶來的真實問題。
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 什麼是行動學習 ===================== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker">Action Learning</div>
+    <h2>什麼是行動學習？</h2>
+    <p class="lead">
+      一種起源於 1940 年代英國、被微軟與台積電等企業用於領導力發展的組織學習方法。
+      規則簡單到只有三條，效果卻深遠。
+    </p>
+
+    <div class="formula">L = P <span>×</span> Q <span>×</span> R</div>
+    <p class="formula-note">學習 = 知識 × 提問 × 反思。是乘法，不是加法——任何一項為零，學習歸零。</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3><span class="no">RULE 01</span>只問問題，不給建議</h3>
+        <p>當「給答案」被規則禁止，每個人都必須承認：我對這個問題的理解是不完整的。這個小小的轉變，讓討論從「推銷方案的競技場」變成真正的共同探索。</p>
+      </div>
+      <div class="card">
+        <h3><span class="no">RULE 02</span>帶真實的問題進場</h3>
+        <p>不是案例演練，不是模擬情境。是你此刻真的在意、真的卡住、真的需要往前走的問題。利害關係是真的，學習才是真的。</p>
+      </div>
+      <div class="card">
+        <h3><span class="no">RULE 03</span>行動之後必有反思</h3>
+        <p>經驗本身不等於學習，經驗加上回頭看那個經驗，才是學習。每一輪對話結束，我們都會停下來看：剛才發生了什麼？</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 你的問題長什麼樣 ===================== -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Your Question</div>
+    <h2>什麼樣的問題適合帶來？</h2>
+    <p class="lead">沒有現成答案的那種。比方說——</p>
+    <ul class="scenes">
+      <li>你正在面對一個職涯選擇，每個選項都有道理，所以更難選。</li>
+      <li>你在團隊管理上遇到一個反覆出現的難題，換了方法還是回到原點。</li>
+      <li>你想推動一件事，卻不知道為什麼總是推不動。</li>
+      <li>你有一個想法，但還沒有整理成可以行動的方向。</li>
+      <li>你覺得自己卡在某個階段，但說不清楚真正卡住的是什麼。</li>
+    </ul>
+    <p style="margin-top:32px;">
+      工作坊裡有個真實案例：一位主管帶著「如何提升團隊執行力」進場，
+      九十分鐘的提問之後，他自己說出了新的問題——「其實是我不會給清楚的指令」。
+      <strong>沒有人給他答案。是提問，讓他看見了自己看不見的東西。</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 一魚三吃 ===================== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker">What You Take Home</div>
+    <h2>你會帶走三樣東西</h2>
+    <p class="lead">行動學習有趣的地方：解題、練功、建立連結，三件事同時發生。</p>
+    <div class="cards">
+      <div class="card">
+        <h3><span class="no">TAKEAWAY 01</span>問題的新形狀</h3>
+        <p>如果你是帶問題的人——多元背景的提問會系統性地測試你陳述裡的每一個假設。問題可能還沒解決，但它會被重新看見。而重新看見，往往比解決更接近答案。</p>
+      </div>
+      <div class="card">
+        <h3><span class="no">TAKEAWAY 02</span>提問的能力</h3>
+        <p>當給建議被禁止，你才會發現自己平常的「提問」多半是包著問號的說服。被迫只能問的九十分鐘，是提問力最扎實的鍛鍊——而提問力，正是 AI 時代與人協作、與 AI 協作共同的槓桿。</p>
+      </div>
+      <div class="card">
+        <h3><span class="no">TAKEAWAY 03</span>一次集體智慧的親身體驗</h3>
+        <p>session 結束後問問題擁有者：「那個關鍵洞見是誰說的？」他通常答不出來——因為洞見不屬於任何一個人，它是從整個場域長出來的。集體智慧的湧現，書上讀一百次，不如坐進去一次。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AI 時代 ===================== -->
+<section class="ai-era">
+  <div class="wrap">
+    <div class="kicker">Why Now</div>
+    <h2>AI 都能給答案了，為什麼還要學提問？</h2>
+    <p class="big-line">
+      正因為答案變得免費，<br>
+      <strong>「問對問題」成了最貴的能力。</strong>
+    </p>
+    <p>
+      AI 回答你問的問題，而不是你該問的問題。你問「如何提升團隊執行力」，
+      它給你十個執行力框架——它不會停下來問你：「等等，這真的是你的問題嗎？」
+      解錯問題的速度，反而變快了。
+    </p>
+    <p>
+      AI 取代的是「知道答案的人」，取代不了「能讓一群人一起把問題想清楚的人」。
+      這場沙龍練的，就是成為後者。
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 當天流程 ===================== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker">Agenda</div>
+    <h2>當天會發生什麼？</h2>
+    <div class="agenda">
+      <div class="agenda-item">
+        <div class="agenda-no">壹</div>
+        <div>
+          <span class="tag">理解</span>
+          <h3>行動學習簡介</h3>
+          <p>什麼是行動學習？它和一般課程、教練、顧問、讀書會有什麼不同？為什麼三條簡單規則能讓集體智慧發生？</p>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-no">貳</div>
+        <div>
+          <span class="tag">體驗</span>
+          <h3>一場真實的行動學習對話</h3>
+          <p>由認證行動學習教練帶領，圍繞一位夥伴的真實問題，進行完整的提問—反思—行動承諾循環。你可以是帶問題的人，也可以是提問的人——兩個位子的收穫一樣大。</p>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-no">參</div>
+        <div>
+          <span class="tag">轉化</span>
+          <h3>反思與交流</h3>
+          <p>一起整理：剛才發生了什麼？這樣的學習方式，可以如何帶回你的職場、團隊與個人成長中？</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 適合對象 ===================== -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Who It's For</div>
+    <h2>這場沙龍適合你，如果——</h2>
+    <ul class="fit-list">
+      <li>你想提升提問能力，卻發現這件事沒有地方可以「真的練」</li>
+      <li>你對教練、引導、組織發展有興趣，想親身體驗一次完整流程</li>
+      <li>你正面對職涯、管理、團隊或專案的卡點，想被認真地問一次</li>
+      <li>你想體驗一種「不是聽課，而是從真實問題中學習」的方式</li>
+      <li>你對行動學習好奇，但還沒有真正體驗過</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 教練團隊 ===================== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="kicker">Coaches</div>
+    <h2>誰來帶這場對話？</h2>
+    <p class="lead">
+      由 Stephen 與幾位行動學習教練夥伴共同帶領。教練在行動學習裡不給答案、不下指導——
+      我們守護對話的規則，讓集體智慧有條件自己長出來。
+    </p>
+    <!-- TODO: 補上教練姓名、照片與簡介 -->
+    <div class="coach-grid">
+      <div class="coach">
+        <div class="coach-avatar">S</div>
+        <h3>Stephen</h3>
+        <p>行動學習教練<br>人資與人才發展工作者</p>
+      </div>
+      <div class="coach">
+        <div class="coach-avatar">？</div>
+        <h3>教練夥伴</h3>
+        <p>（教練介紹待補）</p>
+      </div>
+      <div class="coach">
+        <div class="coach-avatar">？</div>
+        <h3>教練夥伴</h3>
+        <p>（教練介紹待補）</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 報名資訊 ===================== -->
+<section class="info" id="register">
+  <div class="wrap">
+    <div class="kicker">Join Us</div>
+    <h2>沙龍資訊</h2>
+    <div class="info-grid">
+      <div class="info-cell">
+        <div class="label">日期</div>
+        <div class="value">9/12（六）<small>下午</small></div>
+      </div>
+      <div class="info-cell">
+        <div class="label">地點</div>
+        <div class="value">台北市<small>捷運站附近・確認後通知</small></div>
+      </div>
+      <div class="info-cell">
+        <div class="label">形式</div>
+        <div class="value">小型沙龍<small>現場體驗・名額有限</small></div>
+      </div>
+      <div class="info-cell">
+        <div class="label">費用</div>
+        <div class="value">酌收場地費<small>報名後告知付款方式</small></div>
+      </div>
+    </div>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScklLyNI6wkuiPjBQDgOF2MjF5ezN6taEW6dNuJ8U2pxY4ZrA/viewform" target="_blank" rel="noopener">立即報名</a>
+    <span class="btn-note">為維持小組對話品質，額滿即止</span>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section>
+  <div class="wrap">
+    <div class="kicker">FAQ</div>
+    <h2>常見問題</h2>
+    <details>
+      <summary>我的問題需要先想得很清楚嗎？</summary>
+      <p>不需要。你不清楚，才需要來。行動學習的整個設計，就是幫你把還說不清楚的問題慢慢看清楚。帶著「真的在意、也願意被討論」這兩個條件來就夠了。</p>
+    </details>
+    <details>
+      <summary>我不想當「被提問的人」，可以只參加嗎？</summary>
+      <p>可以。每場只會有一到兩位夥伴擔任問題提出者。擔任提問者的收穫一樣大——你會在別人的問題裡看見自己的思考慣性，並且實際鍛鍊提問力。</p>
+    </details>
+    <details>
+      <summary>問題會被保密嗎？</summary>
+      <p>會。沙龍開始前我們會建立共同約定，場內討論的內容不帶出場外。這也是行動學習能讓人安心打開真實問題的原因——心理安全感不靠口號，靠結構。</p>
+    </details>
+    <details>
+      <summary>我完全沒接觸過教練或引導，適合嗎？</summary>
+      <p>適合。行動學習的規則簡單到當場就能上手，而且有教練全程守護流程。事實上，第一次體驗的人往往收穫最大，因為「只問問題」的衝擊最新鮮。</p>
+    </details>
+    <details>
+      <summary>這和找教練、找顧問有什麼不同？</summary>
+      <p>顧問給你答案，教練陪你一對一探索。行動學習給你的是一群多元背景的提問者——不同視角同時作用在你的問題上，系統性地測試你沒發現的假設。這個經驗，在其他地方買不到。</p>
+    </details>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="brand">行動學習沙龍</div>
+    <p>有時候，問題不一定需要立刻被解決。<br>它需要先被重新看見。</p>
+    <p style="margin-top:20px;">© 2026 Action Learning Salon</p>
+  </div>
+</footer>
+
+</body>
+</html>
