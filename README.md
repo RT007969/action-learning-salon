@@ -2,13 +2,18 @@
 
 單一檔案 `index.html`，無外部依賴（字型走 Google Fonts CDN），可直接部署到任何靜態空間（GitHub Pages / Netlify / Vercel / 自有主機）。
 
-## 發佈前待辦
+## 狀態
 
-- [ ] **繳費連結**：搜尋 `TODO: 將 href="#" 換成繳費連結`，把報名按鈕的 `href="#"` 換成實際連結
-- [ ] **教練資訊**：搜尋 `TODO: 補上教練姓名`，補上教練夥伴的姓名與簡介（可加照片，把 `.coach-avatar` 換成 `<img>`）
-- [ ] **確切時間**：Hero 與沙龍資訊區目前寫「9/12（六）下午」，確定起迄時間後更新
-- [ ] **地點**：場地確定後更新「台北市捷運站附近」
-- [ ] **費用**：目前寫「酌收場地費」，定價後可改為實際金額
+- 已發佈：https://rt007969.github.io/action-learning-salon/ （GitHub Pages, repo: RT007969/action-learning-salon）
+- 報名按鈕連到 Google Form：https://docs.google.com/forms/d/e/1FAIpQLScklLyNI6wkuiPjBQDgOF2MjF5ezN6taEW6dNuJ8U2pxY4ZrA/viewform
+- [x] 教練資訊（8 位，照片在 `images/`，源檔在 `~/Desktop/AL Pic`）
+- [x] 時間（9/12 六 13:30 報到，14:00–17:30）
+- [x] 地點（No.500 活動 課程 攝影空間，臺北市信義區忠孝東路四段500號10樓之一）
+- [x] 費用（500 TWD 場地費）
+- [ ] 教練簡介目前統一寫「行動學習教練」，之後可個別補充
+- [ ] 繳費方式目前寫「報名後告知」，有金流連結後可加進表單或頁面
+
+更新流程：改本地檔案 → `git commit` → `git push`，Pages 會自動重新部署（約 1 分鐘）。
 
 ## 結構
 

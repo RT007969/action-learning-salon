@@ -220,19 +220,34 @@
   }
 
   /* ===== 教練 ===== */
-  .coach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-top: 36px; }
+  .coach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin-top: 36px; }
   .coach {
     background: var(--card); border: 1px solid var(--card-border); border-radius: 14px;
-    padding: 30px 24px; text-align: center;
+    padding: 26px 16px; text-align: center;
   }
   .coach-avatar {
-    width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 16px;
-    background: rgba(245,197,24,.08); display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 1.6rem; font-weight: 900; color: var(--gold);
-    border: 2px solid rgba(245,197,24,.4);
+    width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 14px;
+    object-fit: cover; display: block;
+    border: 2px solid rgba(245,197,24,.5);
+    box-shadow: 0 0 18px rgba(245,197,24,.15);
   }
   .coach h3 { font-size: 1.05rem; color: #fff; }
-  .coach p { font-size: .85rem; color: var(--muted); margin-top: 6px; }
+  .coach p { font-size: .82rem; color: var(--muted); margin-top: 4px; }
+
+  /* ===== 行前小作業 ===== */
+  .prework-list { list-style: none; margin-top: 30px; display: grid; gap: 14px; }
+  .prework-list li {
+    background: var(--card); border: 1px solid var(--card-border); border-radius: 12px;
+    padding: 18px 24px 18px 58px; position: relative; font-size: 1rem; color: var(--text-soft);
+  }
+  .prework-list li .idx {
+    position: absolute; left: 22px; top: 16px;
+    font-family: var(--serif); font-weight: 900; color: var(--gold); font-size: 1.05rem;
+  }
+  .prework-note {
+    margin-top: 28px; border-left: 3px solid var(--gold); padding: 6px 0 6px 26px;
+    font-family: var(--serif); font-size: 1.05rem; color: var(--gold-soft);
+  }
 
   /* ===== 報名資訊 ===== */
   .info {
@@ -297,7 +312,7 @@
 <!-- ===================== HERO ===================== -->
 <header class="hero">
   <div class="wrap">
-    <div class="hero-date">2026.9.12（六）下午・台北</div>
+    <div class="hero-date">2026.9.12（六）14:00–17:30・台北信義</div>
     <h1>帶著一個<em>真問題</em>來，<br>讓問題開始往前走</h1>
     <p class="hero-sub">
       一場不給答案的沙龍。<br>
@@ -499,26 +514,68 @@
     <div class="kicker">Coaches</div>
     <h2>誰來帶這場對話？</h2>
     <p class="lead">
-      由 Stephen 與幾位行動學習教練夥伴共同帶領。教練在行動學習裡不給答案、不下指導——
+      由八位行動學習教練共同帶領。教練在行動學習裡不給答案、不下指導——
       我們守護對話的規則，讓集體智慧有條件自己長出來。
     </p>
-    <!-- TODO: 補上教練姓名、照片與簡介 -->
     <div class="coach-grid">
       <div class="coach">
-        <div class="coach-avatar">S</div>
+        <img class="coach-avatar" src="images/howie.jpg" alt="Howie">
+        <h3>Howie</h3>
+        <p>行動學習教練</p>
+      </div>
+      <div class="coach">
+        <img class="coach-avatar" src="images/vincent.jpg" alt="Vincent">
+        <h3>Vincent</h3>
+        <p>行動學習教練</p>
+      </div>
+      <div class="coach">
+        <img class="coach-avatar" src="images/elena.jpg" alt="Elena">
+        <h3>Elena</h3>
+        <p>行動學習教練</p>
+      </div>
+      <div class="coach">
+        <img class="coach-avatar" src="images/betty.jpg" alt="Betty">
+        <h3>Betty</h3>
+        <p>行動學習教練</p>
+      </div>
+      <div class="coach">
+        <img class="coach-avatar" src="images/henry.jpg" alt="Henry">
+        <h3>Henry</h3>
+        <p>行動學習教練</p>
+      </div>
+      <div class="coach">
+        <img class="coach-avatar" src="images/iris.jpg" alt="Iris">
+        <h3>Iris</h3>
+        <p>行動學習教練</p>
+      </div>
+      <div class="coach">
+        <img class="coach-avatar" src="images/stephen.jpg" alt="Stephen">
         <h3>Stephen</h3>
-        <p>行動學習教練<br>人資與人才發展工作者</p>
+        <p>行動學習教練</p>
       </div>
       <div class="coach">
-        <div class="coach-avatar">？</div>
-        <h3>教練夥伴</h3>
-        <p>（教練介紹待補）</p>
+        <img class="coach-avatar" src="images/yuwei.jpg" alt="魚尾">
+        <h3>魚尾</h3>
+        <p>行動學習教練</p>
       </div>
-      <div class="coach">
-        <div class="coach-avatar">？</div>
-        <h3>教練夥伴</h3>
-        <p>（教練介紹待補）</p>
-      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 行前小作業 ===================== -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Before You Come</div>
+    <h2>行前小作業</h2>
+    <p class="lead">請預先準備一個適合的議題。挑選原則：</p>
+    <ul class="prework-list">
+      <li><span class="idx">一</span>是<strong>真實</strong>的問題——正在發生，不是假設情境。</li>
+      <li><span class="idx">二</span>對你<strong>重要</strong>，但不一定緊急。</li>
+      <li><span class="idx">三</span><strong>沒有標準答案</strong>——查得到答案的問題，交給搜尋引擎就好。</li>
+      <li><span class="idx">四</span>適合透過<strong>團體提問與反思</strong>來探索。</li>
+    </ul>
+    <div class="prework-note">
+      現場每位參與者可以簡短分享自己的議題，再由小組共同決定要討論哪一個。
     </div>
   </div>
 </section>
@@ -530,12 +587,12 @@
     <h2>沙龍資訊</h2>
     <div class="info-grid">
       <div class="info-cell">
-        <div class="label">日期</div>
-        <div class="value">9/12（六）<small>下午</small></div>
+        <div class="label">日期・時間</div>
+        <div class="value">9/12（六）<small>13:30 開放報到・14:00–17:30</small></div>
       </div>
       <div class="info-cell">
         <div class="label">地點</div>
-        <div class="value">台北市<small>捷運站附近・確認後通知</small></div>
+        <div class="value">No.500 活動 課程 攝影空間<small>臺北市信義區忠孝東路四段500號10樓之一</small></div>
       </div>
       <div class="info-cell">
         <div class="label">形式</div>
@@ -543,7 +600,7 @@
       </div>
       <div class="info-cell">
         <div class="label">費用</div>
-        <div class="value">酌收場地費<small>報名後告知付款方式</small></div>
+        <div class="value">500 TWD<small>場地費・報名後告知付款方式</small></div>
       </div>
     </div>
     <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScklLyNI6wkuiPjBQDgOF2MjF5ezN6taEW6dNuJ8U2pxY4ZrA/viewform" target="_blank" rel="noopener">立即報名</a>
